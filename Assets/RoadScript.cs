@@ -19,7 +19,7 @@ public class RoadScript : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<BasicGravity>().SetGravityObject(this.transform, false);
+            other.GetComponent<BasicGravity>().SetGravityObject(this.transform, false, false);
         }
     }
 

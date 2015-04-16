@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SideRoadScript : MonoBehaviour
+public class SideRoad2 : MonoBehaviour
 {
+
 
     // Use this for initialization
     void Start()
@@ -20,7 +21,7 @@ public class SideRoadScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<BasicGravity>().SetGravityObject(this.transform, true, false);
+            other.GetComponent<BasicGravity>().SetGravityObject(this.transform, true, true);
         }
     }
 

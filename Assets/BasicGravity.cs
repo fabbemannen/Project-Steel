@@ -9,6 +9,7 @@ public class BasicGravity : MonoBehaviour
     
     private Rigidbody rigidbody;
     private bool sideRoad = false;
+    private bool sideRoadZ = false;
 
 
 	// Use this for initialization
@@ -38,8 +39,16 @@ public class BasicGravity : MonoBehaviour
 
         if (sideRoad)
         {
-            accel.y = 0;
-            accel.z = 0;
+            if (sideRoadZ)
+            {
+                accel.x = 0;
+                accel.y = 0;
+            }
+            else
+            {
+                accel.y = 0;
+                accel.z = 0;
+            }
         }
         else
         {
@@ -50,10 +59,11 @@ public class BasicGravity : MonoBehaviour
         rigidbody.velocity += accel;
     }
 
-    public void SetGravityObject(Transform a_transform, bool a_sideroad)
+    public void SetGravityObject(Transform a_transform, bool a_sideroad, bool a_ZAXIS)
     {
         gravityObject = a_transform;
         sideRoad = a_sideroad;
+        sideRoadZ = a_ZAXIS;
     }
 
     public void ClearGravityObject()

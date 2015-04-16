@@ -36,9 +36,10 @@ public class BasicVehicleControl : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
+            rigidbody.velocity += transform.up * jumpHeight * Time.deltaTime;
+
             if (!isJumping)
-            {
-                rigidbody.velocity += transform.up * jumpHeight * Time.deltaTime;
+            {                
                 isJumping = true;
             }            
         }
