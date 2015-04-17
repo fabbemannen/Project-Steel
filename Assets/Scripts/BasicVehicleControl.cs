@@ -8,6 +8,8 @@ public class BasicVehicleControl : MonoBehaviour
     public float turnSpeed = 5.0f;
     public float jumpHeight = 20.0f;
 
+    public float maxSpeed = 100.0f;
+
     public float hoverForce = 65.0f;
     public float hoverHeight = 3.5f;
 
@@ -35,6 +37,17 @@ public class BasicVehicleControl : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        Vector3 vel = rigidbody.velocity;
+        if (vel.magnitude > maxSpeed)
+        {
+            vel.Normalize();
+            vel *= maxSpeed;
+            rigidbody.velocity = vel;
+        }
+    }
+
     void VehicleInput()
     {
         float moveDistance = speed * Time.deltaTime;
@@ -51,11 +64,15 @@ public class BasicVehicleControl : MonoBehaviour
 
         if (Input.GetKey("w"))
         {
-            transform.Translate(Vector3.forward * moveDistance);
+            //transform.Translate(Vector3.forward * moveDistance);
+
+            rigidbody.velocity += transform.forward * moveDistance;
         }
         if (Input.GetKey("s"))
         {
-            transform.Translate(-Vector3.forward * moveDistance);
+            //transform.Translate(-Vector3.forward * moveDistance);
+
+            rigidbody.velocity += -transform.forward * moveDistance;
         }
 
         if (Input.GetKey("a"))
@@ -80,12 +97,7 @@ public class BasicVehicleControl : MonoBehaviour
             Vector3 rotVector = new Vector3(0.0f, 0.0f, turnSpeed);
             transform.Rotate(rotVector * Time.deltaTime);
         }
-    }
-
-    void FixedUpdate()
-    {
-               
-    }   
+    }  
       
 }
 
