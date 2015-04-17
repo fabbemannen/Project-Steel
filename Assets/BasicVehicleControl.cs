@@ -27,7 +27,12 @@ public class BasicVehicleControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VehicleInput();        
+        VehicleInput();
+        
+        if(Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
 
     void VehicleInput()
