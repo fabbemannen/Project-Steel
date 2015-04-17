@@ -9,6 +9,8 @@ public class GoalScript : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Win!");
+
+            Application.LoadLevel("FirstPlayableWin");
         }
     }
 
