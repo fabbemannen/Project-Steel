@@ -11,6 +11,8 @@ public class BasicGravity : MonoBehaviour
     private bool sideRoad = false;
     private bool sideRoadZ = false;
 
+    private Vector3 gravityDir;
+
 
 	// Use this for initialization
 	void Start () 
@@ -29,7 +31,7 @@ public class BasicGravity : MonoBehaviour
         {
             rigidbody.useGravity = false;
 
-            CustomGravity();
+            CustomGravityV2();
         }        
 	}
         
@@ -69,5 +71,19 @@ public class BasicGravity : MonoBehaviour
     public void ClearGravityObject()
     {
         gravityObject = null;
+    }
+
+
+    void CustomGravityV2()
+    {
+        Vector3 accel = gravitationalAcceleration * Time.deltaTime * gravityDir;
+
+        rigidbody.velocity += accel * 2;
+    }
+
+    public void SetGravityObjectV2(Transform a_gravityObj,Vector3 a_direction)
+    {
+        gravityObject = a_gravityObj;
+        gravityDir = a_direction;
     }
 }
