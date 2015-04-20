@@ -8,9 +8,12 @@ public class KillFloorScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.transform.position = startPosition.transform.position;
-        other.transform.rotation = startPosition.transform.rotation;
-        other.transform.Rotate(Vector3.zero);
-        other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        if(other.tag == "Player")
+        {
+            other.transform.position = startPosition.transform.position;
+            other.transform.rotation = startPosition.transform.rotation;
+            other.transform.Rotate(Vector3.zero);
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }

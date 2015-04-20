@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SideRoad
   - KillFloor
+  - Road
+  - Ignore
   layers:
   - Default
   - TransparentFX
