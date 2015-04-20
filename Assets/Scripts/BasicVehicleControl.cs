@@ -64,15 +64,15 @@ public class BasicVehicleControl : MonoBehaviour
 
         if (Input.GetKey("w"))
         {
-            //transform.Translate(Vector3.forward * moveDistance);
+            transform.Translate(Vector3.forward * moveDistance);
 
-            rigidbody.velocity += transform.forward * moveDistance;
+            //rigidbody.velocity += transform.forward * moveDistance;
         }
         if (Input.GetKey("s"))
         {
-            //transform.Translate(-Vector3.forward * moveDistance);
+            transform.Translate(-Vector3.forward * moveDistance);
 
-            rigidbody.velocity += -transform.forward * moveDistance;
+            //rigidbody.velocity += -transform.forward * moveDistance;
         }
 
         if (Input.GetKey("a"))

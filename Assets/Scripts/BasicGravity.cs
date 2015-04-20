@@ -5,6 +5,7 @@ public class BasicGravity : MonoBehaviour
 {
 
     public float gravitationalAcceleration = 9.81f;
+    public float gravityMultiplier = 2;
     public Transform gravityObject;
     
     private Rigidbody rigidbody;
@@ -78,7 +79,7 @@ public class BasicGravity : MonoBehaviour
     {
         Vector3 accel = gravitationalAcceleration * Time.deltaTime * gravityDir;
 
-        rigidbody.velocity += accel * 2;
+        rigidbody.velocity += accel * gravityMultiplier;
     }
 
     public void SetGravityObjectV2(Transform a_gravityObj,Vector3 a_direction)
