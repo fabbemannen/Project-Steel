@@ -8,29 +8,25 @@ public class BasicVehicleControl : MonoBehaviour
     public float turnSpeed = 5.0f;
     public float jumpHeight = 20.0f;
 
-    public float maxSpeed = 100.0f;
-
-    public float hoverForce = 65.0f;
-    public float hoverHeight = 3.5f;
+    //public float maxSpeed = 100.0f;
 
     private float powerInput;
     private float turnInput;
 
     private Rigidbody rigidbody;
-    private bool isJumping;
 
 	// Use this for initialization
 	void Awake () 
     {
         rigidbody = GetComponent<Rigidbody>();
-        isJumping = false;
 	}
 
     // Update is called once per frame
     void Update()
     {
-        VehicleInput();
         
+        VehicleInput();
+
         if(Input.GetKey("escape"))
         {
             Application.Quit();
@@ -39,6 +35,7 @@ public class BasicVehicleControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        /*
         Vector3 vel = rigidbody.velocity;
         if (vel.magnitude > maxSpeed)
         {
@@ -46,33 +43,29 @@ public class BasicVehicleControl : MonoBehaviour
             vel *= maxSpeed;
             rigidbody.velocity = vel;
         }
+         * */
     }
 
     void VehicleInput()
     {
-        float moveDistance = speed * Time.deltaTime;
-
-        if (Input.GetKeyDown("space"))
+        // Is the vechicle touching the ground?
+        if (Physics.Raycast(transform.position, transform.up * -1, 2.0f))
         {
-            rigidbody.velocity += transform.up * jumpHeight * Time.deltaTime;
-
-            if (!isJumping)
-            {                
-                isJumping = true;
-            }            
+            if (Input.GetKeyDown("space"))
+            {
+                rigidbody.velocity += transform.up * jumpHeight * Time.deltaTime;
+            }
         }
 
+        float moveDistance = speed * Time.deltaTime;
+        
         if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.forward * moveDistance);
-
-            //rigidbody.velocity += transform.forward * moveDistance;
         }
         if (Input.GetKey("s"))
         {
             transform.Translate(-Vector3.forward * moveDistance);
-
-            //rigidbody.velocity += -transform.forward * moveDistance;
         }
 
         if (Input.GetKey("a"))
