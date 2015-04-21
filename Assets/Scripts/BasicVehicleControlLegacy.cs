@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicVehicleControl : MonoBehaviour 
+public class BasicVehicleControlLegacy : MonoBehaviour 
 {
+    // NOTE(Niklas): do not change anything without consulting me first!
 
     public float speed = 90.0f;
     public float turnSpeed = 5.0f;
