@@ -78,30 +78,18 @@ public class BasicVehicleControl : MonoBehaviour
             Vector3 rotVector = new Vector3(0.0f, turnSpeed, 0.0f);
             transform.Rotate(rotVector * Time.deltaTime);
         }
-        
-        // Rotation:
 
         if (Input.GetKey("right"))
         {
             Vector3 rotVector = new Vector3(0.0f, 0.0f, -turnSpeed);
             transform.Rotate(rotVector * Time.deltaTime);
         }
+
         if (Input.GetKey("left"))
         {
             Vector3 rotVector = new Vector3(0.0f, 0.0f, turnSpeed);
             transform.Rotate(rotVector * Time.deltaTime);
         }
-        if (Input.GetKey("up"))
-        {
-            Vector3 rotVector = new Vector3(turnSpeed, 0.0f, 0.0f);
-            transform.Rotate(rotVector * Time.deltaTime);
-        }
-        if (Input.GetKey("down"))
-        {
-            Vector3 rotVector = new Vector3(-turnSpeed, 0.0f, 0.0f);
-            transform.Rotate(rotVector * Time.deltaTime);
-        }
-
     }  
       
 }
