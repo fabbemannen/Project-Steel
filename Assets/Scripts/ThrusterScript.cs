@@ -23,6 +23,7 @@ public class ThrusterScript : MonoBehaviour
 
                 // calculate how much force for push:
                 force = transform.up * thrusterStrenght * distancePercentage;
+
                 // correct for vehicle mass and deltatime
                 force = force * Time.deltaTime * GetComponent<Rigidbody>().mass;
 
